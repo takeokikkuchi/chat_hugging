@@ -32,6 +32,8 @@ input_container = st.container()
 colored_header(label='', description='', color_name='blue-30')
 response_container = st.container()
 
+# chatbot
+chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
 
 # User input
 ## Function for taking user provided prompt as input
@@ -45,8 +47,7 @@ with input_container:
 # Response output
 ## Function for taking user prompt as input followed by producing AI generated responses
 def generate_response(prompt):
-    st.write(prompt)
-    chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
+    # chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
     response = chatbot.chat(prompt)
     return response
 
