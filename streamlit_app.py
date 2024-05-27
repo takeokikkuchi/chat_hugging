@@ -9,8 +9,8 @@ from transformers import pipeline
 st.set_page_config(page_title="HugChat - An LLM-powered Streamlit app")
 
 # Sidebar contents
-with st.sidebar:
-    st.title('🤗💬 HugChat App Demo Takeo2')
+# with st.sidebar:
+#     st.title('🤗💬 HugChat App Demo Takeo2')
     # #authentification
     # EMAIL = ""
     # PASSWD = ""
