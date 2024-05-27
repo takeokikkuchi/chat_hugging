@@ -56,7 +56,7 @@ def generate_response(prompt):
     # chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
     # response = chatbot.chat(prompt)
     # ans = response.text
-    ans = generator(prompt, max_length=30, num_return_sequences=5)
+    ans = chatbot(prompt, max_length=30, num_return_sequences=5)
     return ans
 
 ## Conditional display of AI generated responses as a function of user provided prompts
