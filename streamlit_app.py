@@ -4,6 +4,7 @@ from streamlit_extras.colored_header import colored_header
 from streamlit_extras.add_vertical_space import add_vertical_space
 from hugchat import hugchat
 from hugchat.login import Login
+from transformers import pipeline
 
 st.set_page_config(page_title="HugChat - An LLM-powered Streamlit app")
 
@@ -28,7 +29,8 @@ if 'past' not in st.session_state:
     st.session_state['past'] = ['Hi!']
 
 # chatbot
-chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
+# chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
+chatbot = pipeline(model="facebook/blenderbot-400M-distill")
 
 # Layout of input/response containers
 input_container = st.container()
@@ -50,8 +52,9 @@ with input_container:
 ## Function for taking user prompt as input followed by producing AI generated responses
 def generate_response(prompt):
     # chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
-    response = chatbot.chat(prompt)
-    ans = response.text
+    # response = chatbot.chat(prompt)
+    # ans = response.text
+    ans = chatbot(input)[0]["generated_text"]
     return ans
 
 ## Conditional display of AI generated responses as a function of user provided prompts
