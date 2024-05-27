@@ -56,7 +56,7 @@ def generate_response(prompt):
     # response = chatbot.chat(prompt)
     # ans = response.text
     response = chatbot(prompt, max_length=30, num_return_sequences=5)
-    answer = response[0]["generated_text"]
+    answer = response[0]["generated_text"].replace(prompt,"")
     return answer
 
 ## Conditional display of AI generated responses as a function of user provided prompts
@@ -67,7 +67,6 @@ with response_container:
         st.session_state.generated.append(response)
         
     if st.session_state['generated']:
-        st.write(st.session_state)
         for i in range(len(st.session_state['generated'])):
             # st.write(st.session_state['past'][i])
             # st.write(st.session_state["generated"][i])
