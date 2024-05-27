@@ -17,7 +17,9 @@ with st.sidebar:
     PASSWD = st.text_input("Enter your password", type="password")
     cookie_path_dir = "./cookies/" # NOTE: trailing slash (/) is required to avoid errors
     sign = Login(EMAIL, PASSWD)
+    st.write(sign)
     cookies = sign.login(cookie_dir_path=cookie_path_dir, save_cookies=True)
+    st.write(cookies)
     # chatbot
     chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
 
@@ -60,9 +62,7 @@ with response_container:
         st.session_state.generated.append(response)
         
     if st.session_state['generated']:
-        # st.write(st.session_state)
-        # st.write(st.session_state["past"])
-        # st.write(st.session_state["generated"])
+        st.write(st.session_state)
         for i in range(len(st.session_state['generated'])):
             # st.write(st.session_state['past'][i])
             # st.write(st.session_state["generated"][i])
