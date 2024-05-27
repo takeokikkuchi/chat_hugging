@@ -18,6 +18,8 @@ with st.sidebar:
     cookie_path_dir = "./cookies/" # NOTE: trailing slash (/) is required to avoid errors
     sign = Login(EMAIL, PASSWD)
     cookies = sign.login(cookie_dir_path=cookie_path_dir, save_cookies=True)
+    # chatbot
+    chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
 
 # Generate empty lists for generated and past.
 ## generated stores AI generated responses
@@ -32,8 +34,7 @@ input_container = st.container()
 colored_header(label='', description='', color_name='blue-30')
 response_container = st.container()
 
-# chatbot
-chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
+
 
 # User input
 ## Function for taking user provided prompt as input
