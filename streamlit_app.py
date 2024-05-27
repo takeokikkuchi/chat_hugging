@@ -30,7 +30,8 @@ if 'past' not in st.session_state:
 
 # chatbot
 # chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
-chatbot = pipeline(model="facebook/blenderbot-400M-distill")
+chatbot = pipeline('text-generation', model='gpt2')
+
 
 # Layout of input/response containers
 input_container = st.container()
@@ -54,7 +55,7 @@ def generate_response(prompt):
     # chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
     # response = chatbot.chat(prompt)
     # ans = response.text
-    ans = chatbot(input)[0]["generated_text"]
+    ans = generator(prompt, max_length=30, num_return_sequences=5)
     return ans
 
 ## Conditional display of AI generated responses as a function of user provided prompts
