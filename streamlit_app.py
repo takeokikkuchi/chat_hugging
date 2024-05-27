@@ -11,14 +11,14 @@ st.set_page_config(page_title="HugChat - An LLM-powered Streamlit app")
 # Sidebar contents
 with st.sidebar:
     st.title('🤗💬 HugChat App Demo Takeo2')
-    #authentification
-    EMAIL = ""
-    PASSWD = ""
-    EMAIL = st.text_input("Enter your email")
-    PASSWD = st.text_input("Enter your password", type="password")
-    cookie_path_dir = "./cookies/" # NOTE: trailing slash (/) is required to avoid errors
-    sign = Login(EMAIL, PASSWD)
-    cookies = sign.login(cookie_dir_path=cookie_path_dir, save_cookies=True)
+    # #authentification
+    # EMAIL = ""
+    # PASSWD = ""
+    # EMAIL = st.text_input("Enter your email")
+    # PASSWD = st.text_input("Enter your password", type="password")
+    # cookie_path_dir = "./cookies/" # NOTE: trailing slash (/) is required to avoid errors
+    # sign = Login(EMAIL, PASSWD)
+    # cookies = sign.login(cookie_dir_path=cookie_path_dir, save_cookies=True)
 
 # Generate empty lists for generated and past.
 ## generated stores AI generated responses
