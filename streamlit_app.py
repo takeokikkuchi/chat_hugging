@@ -17,9 +17,7 @@ with st.sidebar:
     PASSWD = st.text_input("Enter your password", type="password")
     cookie_path_dir = "./cookies/" # NOTE: trailing slash (/) is required to avoid errors
     sign = Login(EMAIL, PASSWD)
-    st.write(sign)
     cookies = sign.login(cookie_dir_path=cookie_path_dir, save_cookies=True)
-    st.write(cookies)
     # chatbot
     chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
 
