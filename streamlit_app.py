@@ -3,11 +3,10 @@ import streamlit as st
 from streamlit_chat import message
 from streamlit_extras.colored_header import colored_header
 from streamlit_extras.add_vertical_space import add_vertical_space
-from hugchat import hugchat
-from hugchat.login import Login
 from transformers import pipeline
 
 st.set_page_config(page_title="HugChat - An LLM-powered Streamlit app")
+st.title("chatbot Demo by Takeo")
 
 # Sidebar contents
 # with st.sidebar:
@@ -56,8 +55,9 @@ def generate_response(prompt):
     # chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
     # response = chatbot.chat(prompt)
     # ans = response.text
-    ans = chatbot(prompt, max_length=30, num_return_sequences=5)
-    return ans
+    response = chatbot(prompt, max_length=30, num_return_sequences=5)
+    answer = response[0]["generated_text"]
+    return answer
 
 ## Conditional display of AI generated responses as a function of user provided prompts
 with response_container:
