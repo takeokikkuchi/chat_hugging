@@ -19,7 +19,7 @@ with st.sidebar:
     sign = Login(EMAIL, PASSWD)
     cookies = sign.login(cookie_dir_path=cookie_path_dir, save_cookies=True)
     # chatbot
-    # chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
+    chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
 
 # Generate empty lists for generated and past.
 ## generated stores AI generated responses
@@ -48,7 +48,7 @@ with input_container:
 # Response output
 ## Function for taking user prompt as input followed by producing AI generated responses
 def generate_response(prompt):
-    chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
+    # chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
     response = chatbot.chat(prompt)
     return response
 
