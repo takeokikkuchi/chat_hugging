@@ -36,8 +36,8 @@ colored_header(label='', description='', color_name='blue-30')
 response_container = st.container()
 
 #authentification
-EMAIL = "your email"
-PASSWD = "your password"
+EMAIL = ""
+PASSWD = ""
 cookie_path_dir = "./cookies/" # NOTE: trailing slash (/) is required to avoid errors
 sign = Login(EMAIL, PASSWD)
 cookies = sign.login(cookie_dir_path=cookie_path_dir, save_cookies=True)
