@@ -9,7 +9,7 @@ st.set_page_config(page_title="HugChat - An LLM-powered Streamlit app")
 
 # Sidebar contents
 with st.sidebar:
-    st.title('🤗💬 HugChat App Demo Takeo')
+    st.title('🤗💬 HugChat App Demo Takeo2')
     #authentification
     EMAIL = ""
     PASSWD = ""
@@ -64,7 +64,7 @@ with response_container:
         # st.write(st.session_state["past"])
         # st.write(st.session_state["generated"])
         for i in range(len(st.session_state['generated'])):
-            st.write(st.session_state['past'][i])
-            st.write(st.session_state["generated"][i])
+            # st.write(st.session_state['past'][i])
+            # st.write(st.session_state["generated"][i])
             message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
             message(st.session_state["generated"][i], key=str(i))
