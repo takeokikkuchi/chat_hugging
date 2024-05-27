@@ -9,7 +9,7 @@ st.set_page_config(page_title="HugChat - An LLM-powered Streamlit app")
 
 # Sidebar contents
 with st.sidebar:
-    st.title('🤗💬 HugChat App Demo')
+    st.title('🤗💬 HugChat App Demo Takeo')
     #authentification
     EMAIL = ""
     PASSWD = ""
