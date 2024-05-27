@@ -34,6 +34,13 @@ input_container = st.container()
 colored_header(label='', description='', color_name='blue-30')
 response_container = st.container()
 
+#authentification
+EMAIL = "your email"
+PASSWD = "your password"
+cookie_path_dir = "./cookies/" # NOTE: trailing slash (/) is required to avoid errors
+sign = Login(EMAIL, PASSWD)
+cookies = sign.login(cookie_dir_path=cookie_path_dir, save_cookies=True)
+
 # User input
 ## Function for taking user provided prompt as input
 def get_text():
@@ -46,7 +53,7 @@ with input_container:
 # Response output
 ## Function for taking user prompt as input followed by producing AI generated responses
 def generate_response(prompt):
-    chatbot = hugchat.ChatBot()
+    chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
     response = chatbot.chat(prompt)
     return response
 
