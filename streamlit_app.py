@@ -22,6 +22,15 @@ with st.sidebar:
     # add_vertical_space(5)
     # st.write('Made with ❤️ by [Data Professor](https://youtube.com/dataprofessor)')
 
+    #authentification
+    EMAIL = ""
+    PASSWD = ""
+    EMAIL = st.text_input("Enter your email")
+    PASSWD = st.text_input("Enter your password", type="password")
+    cookie_path_dir = "./cookies/" # NOTE: trailing slash (/) is required to avoid errors
+    sign = Login(EMAIL, PASSWD)
+    cookies = sign.login(cookie_dir_path=cookie_path_dir, save_cookies=True)
+
 # Generate empty lists for generated and past.
 ## generated stores AI generated responses
 if 'generated' not in st.session_state:
@@ -35,12 +44,6 @@ input_container = st.container()
 colored_header(label='', description='', color_name='blue-30')
 response_container = st.container()
 
-#authentification
-EMAIL = ""
-PASSWD = ""
-cookie_path_dir = "./cookies/" # NOTE: trailing slash (/) is required to avoid errors
-sign = Login(EMAIL, PASSWD)
-cookies = sign.login(cookie_dir_path=cookie_path_dir, save_cookies=True)
 
 # User input
 ## Function for taking user provided prompt as input
